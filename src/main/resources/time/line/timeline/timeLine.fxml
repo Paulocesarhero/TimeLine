@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="367.0" prefWidth="650.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="time.line.timeline.TimeLineController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="welcomeText" prefHeight="202.0" prefWidth="515.0" text="La Revolución Industrial es un proceso de transformación económica, social y tecnológica, que se inició en la segunda mitad del siglo XVIII en&#10;el Reino de Gran Bretaña, y que, según varios expertos, no ha terminado. La industria evoluciona impulsada por la tecnología, transformando&#10;la manera en que se producen los bienes y servicios que atienden las necesidades de nuestra sociedad. ¿Quieres conocer los períodos de&#10;esta evolución?&#10;" wrapText="true" />
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Label prefHeight="27.0" prefWidth="106.0" text="Indica una fecha" />
+         <DatePicker fx:id="dpFecha" onAction="#onFechaAct" />
+         <Button fx:id="btnJugar" mnemonicParsing="false" onAction="#onJugarBtn" text="Jugar" />
+      </children>
+   </HBox>
+   <AnchorPane prefHeight="70.0" prefWidth="890.0">
+      <children>
+         <Label layoutX="78.0" layoutY="9.0" prefHeight="38.0" prefWidth="132.0" text="1760 a 1830&#10;RevoluciónIndustrial 1.0" textAlignment="CENTER" wrapText="true" />
+         <Label layoutX="284.0" layoutY="7.0" prefHeight="42.0" prefWidth="140.0" text="1850 a 1914&#10;RevoluciónIndustrial 2.0" textAlignment="CENTER" wrapText="true" />
+         <Label layoutX="431.0" layoutY="7.0" prefHeight="42.0" prefWidth="27.0" text="1900&#10;&#10;" textAlignment="RIGHT" />
+         <Label layoutX="537.0" layoutY="7.0" prefHeight="42.0" prefWidth="132.0" text="1960 a 1970&#10;RevoluciónIndustrial 3.0" textAlignment="CENTER" wrapText="true" />
+         <Label layoutX="677.0" layoutY="7.0" prefHeight="42.0" prefWidth="132.0" text="2011 a 2020&#10;RevoluciónIndustrial 4.0" textAlignment="CENTER" wrapText="true" />
+      </children>
+   </AnchorPane>
+   <Slider fx:id="slTimeLine" blockIncrement="0.0" max="2100.0" min="1700.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="10.0" prefWidth="890.0" />
+</VBox>
