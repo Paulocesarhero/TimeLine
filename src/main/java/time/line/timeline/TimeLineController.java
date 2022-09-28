@@ -3,9 +3,11 @@ package time.line.timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Slider;
+import time.line.utilidades.UtilidadVentana;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +23,10 @@ public class TimeLineController implements Initializable {
 
     public void onJugarBtn(ActionEvent actionEvent) {
         int date[] = separarCadena(String.valueOf(dpFecha.getValue()));
+        String message = validatePeriods(date[0]);
         sliderInfo(date[0]);
+
+        UtilidadVentana.mostrarAlertaSinConfirmacion("Mensaje",message, Alert.AlertType.CONFIRMATION);
 
     }
     public int[] separarCadena(String val){
@@ -72,22 +77,17 @@ public class TimeLineController implements Initializable {
                     "anterior, mediante la conexión de los mundos digital, físico y biológico. Fábricas inteligentes, lugares de producción\n" +
                     "en los que los dispositivos están conectados entre sí con el objetivo de difuminar las barreras entre la demanda, el\n" +
                     "diseño, la fabricación y el suministro";
+        }else if (year < 1760){
+            message = "Ups! La industria todavía no surgía como tal.";
+        }else if ( year >= 2022 && year < 2100){
+            message = "Ups! No sé adivinar el futuro";
+        }else if (year > 2100){
+            message = "Ups! Fuera de rango";
         }else {
             message = "Período de transición\n" +
                     "entre evoluciones industriales";
         }
         return message;
-    }
-
-    public void validateMessage(int[] date){
-        String message;
-        if (date[0] < 1760){
-            message = "Ups! La industria todavía no surgía como tal.";
-        }else if ( date[0] > 2022 && date[0]<2100){
-            message = "Ups! No sé adivinar el futuro";
-        }else if (date[0] > 2100){
-            message = "Ups! Fuera de rango";
-        }
     }
     public void sliderInfo(int year){
         slTimeLine.setValue(year);
